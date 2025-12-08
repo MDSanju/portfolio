@@ -783,20 +783,22 @@
           <!-- Project 1 -->
           <article
             class="project-card card"
-            data-project='{"id":1,"title":"Project One","stack":"React, Node.js","live":"#","repo":"https://github.com/yourname/project-one","desc":"A responsive dashboard for tracking...","challenges":"Auth and realtime updates","improvements":"Add analytics and mobile app"}'
+            data-project='{"id":1,"title":"Alluring Perfumes","stack":"MERN - (React.js, Node.js, Express.js, MongoDB & Firebase), ","live":"https://alluring-perfumes.web.app/","repoC":"https://github.com/MDSanju/alluring-perfumes-client?tab=readme-ov-file","repoS":"https://github.com/MDSanju/alluring-perfumes-server","desc":"Alluring Perfumes is a niche e-commerce platform that allows users to discover, explore, and purchase premium perfumes from multiple renowned brands. Designed with an elegant interface and seamless shopping experience, the website ensures easy browsing, secure ordering, and smooth checkout, making it a go-to destination for fragrance enthusiasts.","challenges":"Auth and realtime updates","improvements":"Add analytics and mobile app"}'
           >
             <img
-              src="https://via.placeholder.com/600x400.png?text=Project+1"
+              src="https://i.ibb.co/Q730kNm0/Screenshot-2025-12-08-235955.png"
               alt="Project 1"
             />
             <div class="project-body">
-              <h3>Project One</h3>
+              <h3>Alluring Perfumes</h3>
               <p class="muted">
-                Responsive analytics dashboard with charts and filters.
+                Alluring Perfumes is an e-commerce website where users can
+                browse, order, and purchase a wide range of niche perfume
+                brands.
               </p>
             </div>
             <div class="project-footer">
-              <div class="muted small">React • Charts</div>
+              <div class="muted small">React • Firebase</div>
               <div>
                 <button class="ghost" onclick="openProject(1)">
                   View Details
@@ -808,20 +810,21 @@
           <!-- Project 2 -->
           <article
             class="project-card card"
-            data-project='{"id":2,"title":"Project Two","stack":"Next.js, Tailwind","live":"#","repo":"https://github.com/yourname/project-two","desc":"A marketing site with CMS integration","challenges":"SEO and SSG issues","improvements":"Add multi-language support"}'
+            data-project='{"id":2,"title":"Dream Tour","stack":"MERN - (JavaScript, React.js, Node.js, Express.js & MongoDB)","live":"https://dream-tour-96662.web.app/","repoC":"https://github.com/MDSanju/dream-tour-client?tab=readme-ov-file","repoS":"https://github.com/MDSanju/dream-tour-server","desc":"Dream Tour is a web application for booking tour packages, allowing users to explore destinations, view detailed itineraries, and make secure bookings. The platform is designed to provide a seamless travel planning experience, with intuitive navigation, responsive design, and easy management of trips.","challenges":"SEO and SSG issues","improvements":"Add multi-language support"}'
           >
             <img
-              src="https://via.placeholder.com/600x400.png?text=Project+2"
+              src="https://i.ibb.co/BVhT6BsT/Screenshot-2025-12-09-000702.png"
               alt="Project 2"
             />
             <div class="project-body">
-              <h3>Project Two</h3>
+              <h3>Dream Tour</h3>
               <p class="muted">
-                Marketing site built with performance as priority.
+                Dream Tour is a tour package booking web app that lets users
+                easily explore, book, and manage travel experiences.
               </p>
             </div>
             <div class="project-footer">
-              <div class="muted small">Next.js • SSG</div>
+              <div class="muted small">React.js • Node.js</div>
               <div>
                 <button class="ghost" onclick="openProject(2)">
                   View Details
@@ -833,18 +836,22 @@
           <!-- Project 3 -->
           <article
             class="project-card card"
-            data-project='{"id":3,"title":"Project Three","stack":"Vanilla JS","live":"#","repo":"https://github.com/yourname/project-three","desc":"Interactive UI components library","challenges":"Cross-browser compatibility","improvements":"Publish as NPM package"}'
+            data-project='{"id":3,"title":"Smart Task Manager","stack":"MERN - (TypeScript, Next.js, Express.js & MongoDB)","live":"https://smart-task-manager-client-woad.vercel.app/","repoC":"https://github.com/MDSanju/Smart-Task-Manager-FE",
+            "repoS":"https://github.com/MDSanju/Smart-Task-Manager-BE","desc":"Smart Task Manager helps individuals and teams organize, prioritize, and track tasks efficiently. With intuitive interfaces, intelligent reminders, and real-time collaboration, it boosts productivity and keeps projects on schedule.","challenges":"Cross-browser compatibility","improvements":"Publish as NPM package"}'
           >
             <img
-              src="https://via.placeholder.com/600x400.png?text=Project+3"
+              src="https://i.ibb.co/8njySD4f/Screenshot-2025-12-09-001121.png"
               alt="Project 3"
             />
             <div class="project-body">
-              <h3>Project Three</h3>
-              <p class="muted">A small but well-tested component library.</p>
+              <h3>Smart Task Manager</h3>
+              <p class="muted">
+                Organize, prioritize, and track your tasks effortlessly with our
+                intelligent task manager.
+              </p>
             </div>
             <div class="project-footer">
-              <div class="muted small">JS • Testing</div>
+              <div class="muted small">TS • Next.js</div>
               <div>
                 <button class="ghost" onclick="openProject(3)">
                   View Details
@@ -985,7 +992,8 @@
         <p class="muted" style="margin-top:12px">${data.desc}</p>
         <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
           <a class="btn" href="${data.live}" target="_blank">Open Live</a>
-          <a class="ghost" href="${data.repo}" target="_blank">GitHub (client)</a>
+          <a class="ghost" href="${data.repoC}" target="_blank">GitHub (client)</a>
+          <a class="ghost" href="${data.repoS}" target="_blank">GitHub (server)</a>
         </div>
         <h4 style="margin-top:12px">Challenges</h4>
         <p class="muted small">${data.challenges}</p>

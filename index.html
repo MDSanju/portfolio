@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Your Name — Portfolio</title>
+    <meta
+      name="description"
+      content="Professional portfolio — Frontend Developer"
+    />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ---------- Root & Variables ---------- */
+      :root {
+        --bg: #0b0f14;
+        --card: #0f1720;
+        --muted: #9aa4b2;
+        --accent: #7c5cff; /* purple */
+        --accent-2: #00d4ff; /* cyan */
+        --glass: rgba(255, 255, 255, 0.04);
+        --glass-2: rgba(255, 255, 255, 0.02);
+        --card-border: rgba(255, 255, 255, 0.04);
+        --success: #22c55e;
+        --danger: #ef4444;
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        color-scheme: dark;
+      }
+
+      /* ---------- Reset ---------- */
+      n * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: radial-gradient(
+            1200px 600px at 10% 10%,
+            rgba(124, 92, 255, 0.07),
+            transparent
+          ),
+          radial-gradient(
+            900px 500px at 90% 90%,
+            rgba(0, 212, 255, 0.03),
+            transparent
+          ),
+          var(--bg);
+        color: #e6eef6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.45;
+        font-size: 16px;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* ---------- Container ---------- */
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 28px;
+      }
+
+      /* ---------- NAVBAR ---------- */
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 0;
+      }
+      .brand {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .logo {
+        width: 46px;
+        height: 46px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        color: #081023;
+        font-size: 18px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+      }
+      .brand h1 {
+        font-size: 15px;
+        margin: 0;
+      }
+      .brand p {
+        margin: 0;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+      }
+      .nav-links a {
+        padding: 8px 12px;
+        border-radius: 8px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .nav-links a:hover {
+        background: var(--glass);
+        color: var(--accent);
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 14px;
+        border-radius: 10px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        color: #061024;
+        font-weight: 700;
+      }
+
+      /* Mobile nav */
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 8px;
+        background: transparent;
+      }
+
+      /* ---------- HERO ---------- */
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 380px;
+        gap: 28px;
+        align-items: center;
+        padding: 48px 0;
+      }
+      .intro {
+        max-width: 760px;
+      }
+      .eyebrow {
+        display: inline-block;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 12px;
+      }
+      .title {
+        font-size: 36px;
+        margin: 18px 0 8px;
+        line-height: 1.05;
+      }
+      .title .highlight {
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .desc {
+        color: var(--muted);
+        font-size: 15px;
+      }
+      .hero-cta {
+        margin-top: 20px;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .photo-card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        border: 1px solid var(--card-border);
+        border-radius: 16px;
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        backdrop-filter: blur(6px);
+      }
+      .photo {
+        width: 220px;
+        height: 220px;
+        border-radius: 16px;
+        object-fit: cover;
+        border: 3px solid rgba(255, 255, 255, 0.04);
+      }
+      .designation {
+        font-weight: 700;
+        color: var(--accent);
+      }
+      .socials {
+        display: flex;
+        gap: 10px;
+      }
+      .socials a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        background: var(--glass);
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      /* ---------- SECTIONS ---------- */
+      section {
+        margin-top: 40px;
+      }
+      .section-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .section-head h2 {
+        margin: 0;
+        font-size: 20px;
+      }
+      .section-head p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      /* About */
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 24px;
+      }
+      .card {
+        background: linear-gradient(
+          180deg,
+          var(--card),
+          rgba(255, 255, 255, 0.01)
+        );
+        border: 1px solid var(--card-border);
+        padding: 18px;
+        border-radius: 12px;
+      }
+
+      /* Skills */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-top: 14px;
+      }
+      .skill {
+        padding: 14px;
+        border-radius: 12px;
+        background: var(--glass-2);
+        border: 1px solid rgba(255, 255, 255, 0.02);
+      }
+      .skill h4 {
+        margin: 0 0 8px;
+      }
+      .skill .bar {
+        height: 8px;
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .skill .bar > i {
+        display: block;
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      }
+      .skills-cats {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+      .chip {
+        padding: 8px 10px;
+        border-radius: 999px;
+        background: var(--glass);
+        font-weight: 600;
+        color: var(--muted);
+      }
+
+      /* Education & Experience list */
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .timeline-item {
+        display: flex;
+        gap: 12px;
+      }
+      .dot {
+        width: 46px;
+        height: 46px;
+        border-radius: 10px;
+        background: var(--glass);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+      }
+
+      /* Projects */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 14px;
+      }
+      .project-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        border: 1px solid var(--card-border);
+      }
+      .project-card img {
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+        display: block;
+      }
+      .project-body {
+        padding: 12px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          transparent
+        );
+      }
+      .project-body h3 {
+        margin: 0 0 8px;
+      }
+      .project-body p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .project-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+      }
+      .ghost {
+        padding: 8px 10px;
+        border-radius: 8px;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        font-weight: 700;
+      }
+
+      /* Project detail area (single page app like) */
+      .project-detail {
+        display: none;
+        animation: fade 0.18s ease both;
+      }
+      .project-detail.active {
+        display: block;
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      /* Contact */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 18px;
+      }
+      form .row {
+        display: flex;
+        gap: 10px;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid var(--card-border);
+        background: transparent;
+        color: inherit;
+      }
+      .submit {
+        padding: 12px;
+        border-radius: 12px;
+        border: none;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        color: #061024;
+        font-weight: 800;
+      }
+
+      /* Footer */
+      footer {
+        margin-top: 40px;
+        padding: 28px 0;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      /* ---------- Responsive ---------- */
+      @media (max-width: 1000px) {
+        .hero {
+          grid-template-columns: 1fr 320px;
+        }
+        .projects-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .skills-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .about {
+          grid-template-columns: 1fr;
+        }
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 720px) {
+        .nav-links {
+          display: none;
+        }
+        .hamburger {
+          display: inline-block;
+        }
+        .container {
+          padding: 18px;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+        .photo {
+          width: 180px;
+          height: 180px;
+        }
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+        .section-head {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+      }
+
+      /* small helpers */
+      .muted {
+        color: var(--muted);
+      }
+      .small {
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- NAV -->
+      <nav class="nav">
+        <div class="brand">
+          <div class="logo">MI</div>
+          <div>
+            <h1>Mominul Islam Sanju</h1>
+            <p class="small muted">Full Stack Developer — MERN</p>
+          </div>
+        </div>
+
+        <div class="nav-links" id="navLinks">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+          <a class="btn" id="downloadResume" href="#" title="Download Resume"
+            >Resume</a
+          >
+        </div>
+
+        <button class="hamburger" id="hamb">☰</button>
+      </nav>
+
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div class="intro">
+          <span class="eyebrow">Available for hire</span>
+          <h2 class="title">
+            Hi, I'm <span class="highlight">Sanju</span> — a Full Stack
+            Developer
+          </h2>
+          <p class="desc">
+            Full Stack (MERN) Developer | Frontend Team Lead I am a Full Stack
+            MERN developer with over 3 years of professional experience,
+            currently leading the Frontend team at Sysonex Inc. I specialize in
+            building scalable full-stack applications, handling both frontend
+            (React, Next.js) and backend (Node.js, Express, MongoDB)
+            development. Passionate about clean code, intuitive UI/UX, and
+            delivering robust solutions that drive real business impact.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn" id="resumeBtn" href="#" title="Download Resume"
+              >Download Resume</a
+            >
+            <a class="ghost" href="#projects">View Projects</a>
+          </div>
+
+          <div style="margin-top: 18px; color: var(--muted)">
+            <strong>Contact:</strong>
+            <span class="small">mdsanjucad@gmail.com • +8801786649178</span>
+          </div>
+        </div>
+
+        <aside class="photo-card">
+          <!-- Replace src with your photo file -->
+          <img
+            class="photo"
+            src="https://i.ibb.co/60RkhcWS/IMG-1068.jpg"
+            alt="Your Photo"
+          />
+          <div style="text-align: center">
+            <div class="designation">Full Stack Developer</div>
+            <div class="muted small">React · Next.js . Node.js . MongoDB</div>
+          </div>
+
+          <div class="socials" aria-hidden>
+            <a href="#" title="GitHub">GH</a>
+            <a href="#" title="LinkedIn">LI</a>
+            <a href="#" title="Twitter">TW</a>
+            <a href="#" title="Facebook">FB</a>
+          </div>
+        </aside>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-head">
+          <h2>About Me</h2>
+          <p class="small muted">A short story behind my work and passions</p>
+        </div>
+
+        <div class="about">
+          <div class="card">
+            <h3 style="margin-top: 0">My programming journey</h3>
+            <p class="muted">
+              I started coding with basic HTML/CSS and JavaScript, and over the
+              years I have grown into a Full Stack MERN developer. Currently, I
+              lead the Frontend team at <strong>Sysonex Inc.</strong>, building
+              scalable applications with
+              <strong>React, Next.js, Node.js, Express, MongoDB</strong>, and
+              modern tooling like
+              <strong>TypeScript, Vite, Tailwind, and testing libraries</strong
+              >. I enjoy turning complex problems into intuitive and
+              high-performance interfaces.
+            </p>
+
+            <h4 style="margin-top: 14px">What I enjoy</h4>
+            <ul class="muted small">
+              <li>Crafting pixel-perfect responsive UIs</li>
+              <li>Optimizing full-stack application performance</li>
+              <li>Collaborating with designers & backend engineers</li>
+            </ul>
+
+            <h4 style="margin-top: 14px">Outside programming</h4>
+            <p class="muted small">
+              I am a passionate <strong>perfume collector</strong>, always
+              exploring unique and niche fragrances. I enjoy discovering rare
+              scents, curating my collection, and learning about the artistry
+              behind perfumery.
+            </p>
+          </div>
+
+          <div>
+            <div class="card">
+              <h4 style="margin: 0 0 8px">Quick facts</h4>
+              <p class="muted small" style="margin: 0">
+                <strong>Location:</strong> Bangladesh
+              </p>
+              <p class="muted small" style="margin: 0">
+                <strong>Email:</strong> mdsanjucad@gmail.com
+              </p>
+              <p class="muted small" style="margin: 0">
+                <strong>Phone:</strong> +8801786649178
+              </p>
+            </div>
+
+            <div style="height: 14px"></div>
+
+            <!-- <div class="card">
+              <h4 style="margin: 0 0 8px">Education</h4>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="dot">BSc</div>
+                  <div>
+                    <div style="font-weight: 700">
+                      B.Sc. in Computer Science
+                    </div>
+                    <div class="muted small">ABC University — 2020</div>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="dot">HSC</div>
+                  <div>
+                    <div style="font-weight: 700">Higher Secondary (HSC)</div>
+                    <div class="muted small">XYZ College — 2016</div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="section-head">
+          <h2>Skills</h2>
+          <p class="small muted">
+            Categorized for clarity — Frontend, Backend, Tools
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill card">
+            <h4>Frontend</h4>
+            <div class="skills-cats">
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">CSS Frameworks</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">TypeScript</span>
+              <span class="chip">React</span>
+              <span class="chip">Next.js</span>
+            </div>
+
+            <div style="margin-top: 12px">
+              <div class="small muted">CSS Architecture</div>
+              <div class="bar" style="margin-top: 8px">
+                <i style="width: 85%"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill card">
+            <h4>Backend & APIs</h4>
+            <div class="skills-cats">
+              <span class="chip">Node.js</span>
+              <span class="chip">Express</span>
+              <span class="chip">REST</span>
+              <span class="chip">MongoDB</span>
+              <span class="chip">GraphQL</span>
+              <span class="chip">Firebase</span>
+            </div>
+
+            <div style="margin-top: 12px">
+              <div class="small muted">API Design</div>
+              <div class="bar" style="margin-top: 8px">
+                <i style="width: 75%"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill card">
+            <h4>Tools & Testing</h4>
+            <div class="skills-cats">
+              <span class="chip">Git</span>
+              <span class="chip">VS Code</span>
+              <span class="chip">Vite</span>
+              <span class="chip">Jest</span>
+              <span class="chip">Cypress</span>
+              <span class="chip">Figma</span>
+            </div>
+
+            <div style="margin-top: 12px">
+              <div class="small muted">Testing</div>
+              <div class="bar" style="margin-top: 8px">
+                <i style="width: 60%"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <div class="section-head">
+          <h2>Experience</h2>
+          <p class="small muted">Where I worked and what I did</p>
+        </div>
+        <div style="display: grid; gap: 12px; margin-top: 12px">
+          <div class="card">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <div>
+                <div style="font-weight: 800">
+                  Frontend Developer & Team Lead — Sysonex Inc.
+                </div>
+                <div class="muted small">Feb 2023 — Present</div>
+              </div>
+              <div class="muted small">Full-time</div>
+            </div>
+            <p class="muted small" style="margin-top: 10px">
+              Worked on internal dashboards, component libraries, accessibility
+              improvements, and performance tuning. Collaborated closely with
+              designers and backend engineers.
+            </p>
+          </div>
+
+          <div class="card">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <div>
+                <div style="font-weight: 800">
+                  MERN Stack Developer — DS Legends Pte. Ltd.
+                </div>
+                <div class="muted small">July 2022 — Jan 2023</div>
+              </div>
+              <div class="muted small">Full Time</div>
+            </div>
+            <p class="muted small" style="margin-top: 10px">
+              Worked on full-stack web applications and blockchain integrations
+              using React, Node.js, and MongoDB, delivering secure and
+              high-performance features.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <p class="small muted">
+            Selected works — click view details for each project
+          </p>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Project 1 -->
+          <article
+            class="project-card card"
+            data-project='{"id":1,"title":"Project One","stack":"React, Node.js","live":"#","repo":"https://github.com/yourname/project-one","desc":"A responsive dashboard for tracking...","challenges":"Auth and realtime updates","improvements":"Add analytics and mobile app"}'
+          >
+            <img
+              src="https://via.placeholder.com/600x400.png?text=Project+1"
+              alt="Project 1"
+            />
+            <div class="project-body">
+              <h3>Project One</h3>
+              <p class="muted">
+                Responsive analytics dashboard with charts and filters.
+              </p>
+            </div>
+            <div class="project-footer">
+              <div class="muted small">React • Charts</div>
+              <div>
+                <button class="ghost" onclick="openProject(1)">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article
+            class="project-card card"
+            data-project='{"id":2,"title":"Project Two","stack":"Next.js, Tailwind","live":"#","repo":"https://github.com/yourname/project-two","desc":"A marketing site with CMS integration","challenges":"SEO and SSG issues","improvements":"Add multi-language support"}'
+          >
+            <img
+              src="https://via.placeholder.com/600x400.png?text=Project+2"
+              alt="Project 2"
+            />
+            <div class="project-body">
+              <h3>Project Two</h3>
+              <p class="muted">
+                Marketing site built with performance as priority.
+              </p>
+            </div>
+            <div class="project-footer">
+              <div class="muted small">Next.js • SSG</div>
+              <div>
+                <button class="ghost" onclick="openProject(2)">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article
+            class="project-card card"
+            data-project='{"id":3,"title":"Project Three","stack":"Vanilla JS","live":"#","repo":"https://github.com/yourname/project-three","desc":"Interactive UI components library","challenges":"Cross-browser compatibility","improvements":"Publish as NPM package"}'
+          >
+            <img
+              src="https://via.placeholder.com/600x400.png?text=Project+3"
+              alt="Project 3"
+            />
+            <div class="project-body">
+              <h3>Project Three</h3>
+              <p class="muted">A small but well-tested component library.</p>
+            </div>
+            <div class="project-footer">
+              <div class="muted small">JS • Testing</div>
+              <div>
+                <button class="ghost" onclick="openProject(3)">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Project detail viewer (single-page detail) -->
+        <div class="card project-detail" id="projectDetail">
+          <button class="ghost" onclick="closeProject()">
+            ← Back to projects
+          </button>
+          <div id="projectContent" style="margin-top: 12px"></div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p class="small muted">
+            I’m available for freelance and full-time roles.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card">
+            <h3 style="margin-top: 0">Get in touch</h3>
+            <p class="muted small">
+              Email me directly or use the contact form.
+            </p>
+
+            <div style="margin-top: 12px">
+              <p class="small muted">
+                <strong>Email:</strong> mdsanjucad@gmail.com
+              </p>
+              <p class="small muted"><strong>Phone:</strong> +8801786649178</p>
+              <p class="small muted">
+                <strong>WhatsApp:</strong> +8801786649178
+              </p>
+            </div>
+          </div>
+
+          <form class="card" onsubmit="submitContact(event)">
+            <div class="row">
+              <input id="name" placeholder="Your name" required />
+            </div>
+            <div class="row" style="margin-top: 10px">
+              <input
+                id="email"
+                placeholder="Your email"
+                type="email"
+                required
+              />
+            </div>
+            <div style="margin-top: 10px">
+              <textarea
+                id="message"
+                placeholder="Message"
+                rows="6"
+                required
+              ></textarea>
+            </div>
+            <div style="margin-top: 12px">
+              <button class="submit">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <footer>
+        Made with ❤️ • © <span id="year"></span> Mominul Islam Sanju —
+        <span class="muted"
+          >All content, design, and code are my intellectual property.</span
+        >
+      </footer>
+    </div>
+
+    <script>
+      // small script for interactivity
+      const hamb = document.getElementById("hamb");
+      const navLinks = document.getElementById("navLinks");
+      hamb.addEventListener("click", () => {
+        if (navLinks.style.display === "flex") {
+          navLinks.style.display = "";
+        } else {
+          navLinks.style.display = "flex";
+          navLinks.style.flexDirection = "column";
+          navLinks.style.position = "absolute";
+          navLinks.style.right = "18px";
+          navLinks.style.top = "72px";
+          navLinks.style.background = "var(--bg)";
+          navLinks.style.padding = "12px";
+          navLinks.style.borderRadius = "10px";
+          navLinks.style.boxShadow = "0 12px 30px rgba(2,6,23,0.6)";
+        }
+      });
+
+      const resumeLinks = document.querySelectorAll(
+        "#downloadResume, #resumeBtn"
+      );
+
+      resumeLinks.forEach((el) =>
+        el.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          // Google Drive direct download link
+          const resumeUrl =
+            "https://drive.google.com/uc?export=download&id=1rMtXlB0tdfQlsuopBbW6BnFz16NgRuSi";
+
+          // Create a temporary anchor element to trigger download
+          const a = document.createElement("a");
+          a.href = resumeUrl;
+          a.download = "My_Resume.pdf"; // Name the downloaded file
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        })
+      );
+
+      // Projects: open detail from data attribute
+      const projectCards = document.querySelectorAll(".project-card");
+      const projectDetail = document.getElementById("projectDetail");
+      const projectContent = document.getElementById("projectContent");
+
+      function openProject(id) {
+        // find project card by data-project
+        const card = Array.from(projectCards).find(
+          (c) => JSON.parse(c.dataset.project).id === id
+        );
+        if (!card) return;
+        const data = JSON.parse(card.dataset.project);
+        projectContent.innerHTML = `
+        <h2 style="margin:0 0 6px">${data.title}</h2>
+        <div class="muted small">Stack: ${data.stack}</div>
+        <p class="muted" style="margin-top:12px">${data.desc}</p>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+          <a class="btn" href="${data.live}" target="_blank">Open Live</a>
+          <a class="ghost" href="${data.repo}" target="_blank">GitHub (client)</a>
+        </div>
+        <h4 style="margin-top:12px">Challenges</h4>
+        <p class="muted small">${data.challenges}</p>
+        <h4 style="margin-top:12px">Potential improvements</h4>
+        <p class="muted small">${data.improvements}</p>
+      `;
+        projectDetail.classList.add("active");
+        window.scrollTo({
+          top: projectDetail.offsetTop - 20,
+          behavior: "smooth",
+        });
+      }
+      function closeProject() {
+        projectDetail.classList.remove("active");
+        window.scrollTo({
+          top: document.getElementById("projects").offsetTop - 20,
+          behavior: "smooth",
+        });
+      }
+
+      // Contact form handler (placeholder) — replace with real backend endpoint when ready
+      function submitContact(e) {
+        e.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+        // simple validation
+        if (!name || !email || !message) {
+          alert("Please fill all fields.");
+          return;
+        }
+        // For now, show a friendly message and clear form
+        alert(
+          "Thanks, " +
+            name +
+            "! Your message was recorded (demo). Replace submitContact() with real API to send messages."
+        );
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+      }
+
+      // set current year
+      document.getElementById("year").innerText = new Date().getFullYear();
+
+      // small utility: attach onclick to project ghost buttons dynamically in case of event binding issues
+      // (we already added inline onclicks for clarity above)
+    </script>
+
+    <!--
+    USAGE NOTES:
+    1. Replace "Your Name", photo URL, contact details, and resumeUrl inside the <script> with your real data.
+    2. Replace each project's data-project JSON with real data, images, live links and GitHub repo links.
+    3. To host: push this file (index.html) to GitHub and enable GitHub Pages or deploy to Netlify/Vercel.
+    4. If you want separate project detail pages instead of SPA-style detail, create project-1.html, project-2.html etc.
+  --></body>
+</html>

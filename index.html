@@ -994,17 +994,10 @@
         el.addEventListener("click", (e) => {
           e.preventDefault();
 
-          // Google Drive direct download link
           const resumeUrl =
             "https://docs.google.com/document/d/10aIKpb7iWGsmPtR5WuPPrzZXL7rI_9ZJBi3fUkpAWX8/edit?usp=sharing";
 
-          // Create a temporary anchor element to trigger download
-          const a = document.createElement("a");
-          a.href = resumeUrl;
-          a.download = "My_Resume.pdf"; // Name the downloaded file
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
+          window.open(resumeUrl, "_blank");
         }),
       );
 

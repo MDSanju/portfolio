@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -28,8 +28,14 @@
         --card-border: rgba(255, 255, 255, 0.04);
         --success: #22c55e;
         --danger: #ef4444;
-        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial;
+        font-family:
+          "Inter",
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          "Helvetica Neue",
+          Arial;
         color-scheme: dark;
       }
 
@@ -43,7 +49,8 @@
       }
       body {
         margin: 0;
-        background: radial-gradient(
+        background:
+          radial-gradient(
             1200px 600px at 10% 10%,
             rgba(124, 92, 255, 0.07),
             transparent
@@ -980,7 +987,7 @@
       });
 
       const resumeLinks = document.querySelectorAll(
-        "#downloadResume, #resumeBtn"
+        "#downloadResume, #resumeBtn",
       );
 
       resumeLinks.forEach((el) =>
@@ -989,7 +996,7 @@
 
           // Google Drive direct download link
           const resumeUrl =
-            "https://drive.google.com/file/d/14DcOy47SBZBqlwSSB5I5Ev3jibqg93So/view?usp=sharing";
+            "https://docs.google.com/document/d/10aIKpb7iWGsmPtR5WuPPrzZXL7rI_9ZJBi3fUkpAWX8/edit?usp=sharing";
 
           // Create a temporary anchor element to trigger download
           const a = document.createElement("a");
@@ -998,7 +1005,7 @@
           document.body.appendChild(a);
           a.click();
           document.body.removeChild(a);
-        })
+        }),
       );
 
       // Projects: open detail from data attribute
@@ -1009,7 +1016,7 @@
       function openProject(id) {
         // find project card by data-project
         const card = Array.from(projectCards).find(
-          (c) => JSON.parse(c.dataset.project).id === id
+          (c) => JSON.parse(c.dataset.project).id === id,
         );
         if (!card) return;
         const data = JSON.parse(card.dataset.project);
@@ -1056,7 +1063,7 @@
         alert(
           "Thanks, " +
             name +
-            "! Your message was recorded (demo). Replace submitContact() with real API to send messages."
+            "! Your message was recorded (demo). Replace submitContact() with real API to send messages.",
         );
         document.getElementById("name").value = "";
         document.getElementById("email").value = "";
